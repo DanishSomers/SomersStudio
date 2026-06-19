@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Somers Studio — Premium Web Design for Malaysian Businesses</title>
+<meta name="description" content="Somers Studio creates modern, high-performance websites, redesigns, logos and marketing materials for businesses that want to stand out online.">
+<meta name="theme-color" content="#0a0a0a">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Playfair+Display:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Playfair+Display:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:#0a0a0a;color:#e5e5e5;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;cursor:none}
+body a,body button,body input,body textarea,body select{cursor:none}
+:root{--black:#0a0a0a;--black-light:#111;--white:#fff;--gold:#d4a853;--gold-dim:rgba(212,168,83,0.15);--gold-glass:rgba(212,168,83,0.08);--gray-400:#a3a3a3;--gray-600:#737373;--glass:rgba(255,255,255,0.03);--glass-border:rgba(255,255,255,0.06);--radius:20px;--radius-sm:14px;--radius-xs:10px}
+.container{max-width:1200px;margin:0 auto;padding:0 32px}
+section{padding:120px 0}
+.section-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--gold);margin-bottom:18px;display:inline-block}
+.section-h2{font-family:'Playfair Display',serif;font-size:48px;font-weight:800;letter-spacing:-0.5px;line-height:1.1;margin-bottom:18px;color:var(--white)}
+.section-sub{font-size:17px;color:var(--gray-400);max-width:560px;line-height:1.7;font-weight:300}
+@media(max-width:768px){section{padding:72px 0}.section-h2{font-size:32px}.container{padding:0 20px}}
+
+/* CURSOR GLOW */
+.cursor-glow{position:fixed;top:0;left:0;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(212,168,83,0.06),transparent 70%);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:opacity 0.3s}
+body:hover .cursor-glow{opacity:1}
+@media(max-width:768px){.cursor-glow{display:none}body,body a,body button,body input,body textarea,body select{cursor:auto}}
+
+/* NAVBAR */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,10,10,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--glass-border);transition:all 0.3s}
+.navbar.scrolled{background:rgba(10,10,10,0.95)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:80px}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo-icon{width:40px;height:40px;background:var(--gold);border-radius:var(--radius-xs);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--black);font-weight:900;font-family:'Playfair Display',serif}
+.nav-logo-img{height:40px;width:auto;display:block}.logo-s{width:44px;height:44px;border-radius:12px;background:var(--gold);display:flex;align-items:center;justify-content:center;font-family:"Playfair Display",serif;font-size:28px;font-weight:900;color:var(--black);line-height:1;flex-shrink:0}.logo-text{font-family:"Playfair Display",serif;font-size:18px;font-weight:700;color:var(--white);letter-spacing:-0.3px}.logo-large-s{width:100px;height:100px;border-radius:24px;background:var(--gold);display:flex;align-items:center;justify-content:center;font-family:"Playfair Display",serif;font-size:60px;font-weight:900;color:var(--black);margin:0 auto}.nav-logo-text{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--white);letter-spacing:-0.3px}
+.nav-links{display:flex;gap:4px;list-style:none;align-items:center}
+.nav-links a{text-decoration:none;color:var(--gray-400);font-size:13px;font-weight:500;padding:8px 18px;border-radius:999px;transition:all 0.3s;letter-spacing:0.3px}
+.nav-links a:hover{color:var(--white);background:var(--glass)}
+.nav-cta{background:var(--gold)!important;color:var(--black)!important;padding:9px 22px!important;font-weight:600!important}
+.nav-cta:hover{background:var(--white)!important;color:var(--black)!important}
+.nav-toggle{display:none;background:none;border:none;font-size:20px;cursor:none;color:var(--white);padding:8px}
+@media(max-width:900px){
+  .nav-links{position:fixed;top:80px;left:0;right:0;background:rgba(10,10,10,0.97);flex-direction:column;padding:20px;gap:2px;border-bottom:1px solid var(--glass-border);display:none;backdrop-filter:blur(20px)}
+  .nav-links.open{display:flex}
+  .nav-links a{width:100%;padding:14px 18px;border-radius:var(--radius-xs)}
+  .nav-toggle{display:block}
+}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;border-radius:999px;font-size:14px;font-weight:600;text-decoration:none;cursor:none;border:none;transition:all 0.3s;font-family:'Inter',sans-serif;letter-spacing:0.3px}
+.btn-primary{background:var(--gold);color:var(--black);box-shadow:0 0 30px rgba(212,168,83,0.2)}
+.btn-primary:hover{background:var(--white);color:var(--black);box-shadow:0 0 50px rgba(255,255,255,0.15);transform:translateY(-2px)}
+.btn-glass{background:rgba(255,255,255,0.05);color:var(--white);border:1px solid rgba(255,255,255,0.1);backdrop-filter:blur(10px)}
+.btn-glass:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);transform:translateY(-2px)}
+.btn-group{display:flex;flex-wrap:wrap;gap:12px}
+
+/* HERO */
+.hero{position:relative;padding:180px 0 140px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% -20%,rgba(212,168,83,0.08),transparent)}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr;max-width:800px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--gold-dim);border:1px solid rgba(212,168,83,0.2);padding:8px 20px;border-radius:999px;font-size:12px;font-weight:500;color:var(--gold);margin-bottom:28px;backdrop-filter:blur(10px)}
+.hero-badge .dot{width:5px;height:5px;border-radius:50%;background:var(--gold);animation:glow 2s infinite}
+@keyframes glow{0%,100%{opacity:0.3;box-shadow:0 0 4px var(--gold)}50%{opacity:1;box-shadow:0 0 12px var(--gold)}}
+.hero h1{font-family:'Playfair Display',serif;font-size:64px;font-weight:800;letter-spacing:-1.5px;line-height:1.08;margin-bottom:24px;color:var(--white)}
+.hero h1 span{color:var(--gold)}
+.hero p{font-size:18px;color:var(--gray-400);line-height:1.7;margin-bottom:40px;max-width:600px;font-weight:300}
+.hero-stats{display:flex;gap:40px;margin-top:48px;flex-wrap:wrap}
+.hero-stat-num{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--gold);line-height:1}
+.hero-stat-lbl{font-size:12px;color:var(--gray-600);margin-top:6px;text-transform:uppercase;letter-spacing:1px}
+@media(max-width:768px){.hero{padding:140px 0 80px}.hero h1{font-size:36px;letter-spacing:-0.5px}.hero p{font-size:15px}.hero-stats{gap:24px}.hero-stat-num{font-size:28px}}
+
+/* GLASS CARDS */
+.glass-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:all 0.4s;position:relative;overflow:hidden}
+.glass-card::after{content:'';position:absolute;inset:0;border-radius:var(--radius);background:radial-gradient(600px circle at var(--mx,50%) var(--my,50%),rgba(212,168,83,0.06),transparent 40%);opacity:0;transition:opacity 0.4s;pointer-events:none}
+.glass-card:hover::after{opacity:1}
+.glass-card:hover{border-color:rgba(212,168,83,0.2);transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,0.3)}
+@media(max-width:768px){.glass-card::after{display:none}}
+
+/* PORTFOLIO */
+.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.portfolio-item{aspect-ratio:4/3;padding:0;overflow:hidden}
+.portfolio-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s;display:block}
+.portfolio-item:hover img{transform:scale(1.06)}
+.portfolio-info{position:absolute;bottom:0;left:0;right:0;padding:24px;background:linear-gradient(transparent,rgba(0,0,0,0.85));z-index:1}
+.portfolio-info h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:var(--white);margin-bottom:4px}
+.portfolio-info p{font-size:12px;color:var(--gold);text-transform:uppercase;letter-spacing:1px}
+@media(max-width:900px){.portfolio-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.portfolio-grid{grid-template-columns:1fr}}
+
+/* SERVICES */
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.service-card{padding:40px 28px;text-align:center}
+.service-card .sicon{font-size:36px;margin-bottom:20px;display:block}
+.service-card h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:var(--white);margin-bottom:8px}
+.service-card p{font-size:12px;color:var(--gray-400);line-height:1.6}
+.service-card .sprice{display:inline-block;margin-top:14px;padding:6px 14px;background:var(--gold-dim);border-radius:999px;font-size:11px;color:var(--gold);font-weight:600}
+@media(max-width:900px){.services-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.services-grid{grid-template-columns:1fr}}
+
+/* PRICING */
+.pricing-card{max-width:420px;margin:0 auto;padding:48px 40px;text-align:center}
+.pricing-card .price-num{font-family:'Playfair Display',serif;font-size:64px;font-weight:800;color:var(--gold);line-height:1}
+.pricing-card .price-from{font-size:13px;color:var(--gray-400);margin-bottom:24px;text-transform:uppercase;letter-spacing:1px}
+.pricing-card .price-note{font-size:13px;color:var(--gray-400);margin-top:20px;line-height:1.6;font-weight:300}
+.pricing-features{display:flex;flex-direction:column;gap:10px;text-align:left;margin:0 auto;max-width:280px}
+.pricing-feat{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--gray-400)}
+.pricing-feat::before{content:'✓';color:var(--gold);font-weight:700;font-size:14px}
+
+/* TESTIMONIALS */
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.testimonial-card{padding:32px}
+.testimonial-stars{color:var(--gold);font-size:14px;letter-spacing:2px;margin-bottom:16px}
+.testimonial-text{font-size:14px;color:var(--gray-400);line-height:1.7;margin-bottom:24px}
+.testimonial-author{display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--glass-border)}
+.testimonial-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:var(--black);background:var(--gold)}
+.testimonial-name{font-size:13px;font-weight:600;color:var(--white)}
+.testimonial-role{font-size:11px;color:var(--gray-600)}
+@media(max-width:768px){.testimonials-grid{grid-template-columns:1fr}}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.about-image{aspect-ratio:1;border-radius:var(--radius);background:linear-gradient(135deg,var(--gold-dim),var(--glass));display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.about-image .logo-large{font-family:'Playfair Display',serif;font-size:72px;font-weight:900;color:var(--gold);opacity:0.6}
+.about-image .accent-dot{position:absolute;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(212,168,83,0.15),transparent 70%);top:-50px;right:-50px}
+.about-features{display:flex;flex-direction:column;gap:14px;margin-top:28px}
+.about-feat{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--gray-400);font-weight:400}
+.about-feat .check{color:var(--gold);font-weight:700;font-size:16px}
+@media(max-width:768px){.about-grid{grid-template-columns:1fr;gap:40px}}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.contact-cards{display:flex;flex-direction:column;gap:16px}
+.contact-card{display:flex;align-items:flex-start;gap:16px;padding:24px}
+.contact-card .cc-icon{width:44px;height:44px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;background:var(--gold-dim)}
+.contact-card h3{font-size:12px;font-weight:700;color:var(--gold);margin-bottom:4px;text-transform:uppercase;letter-spacing:1px}
+.contact-card p,.contact-card a{font-size:14px;color:var(--gray-400);text-decoration:none}
+.contact-card a:hover{color:var(--gold)}
+.form-card{padding:36px}
+.form-card h3{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:var(--white);margin-bottom:28px}
+.fg{margin-bottom:16px}
+.fg label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);margin-bottom:8px}
+.fg input,.fg select,.fg textarea{width:100%;padding:15px 18px;border:1px solid var(--glass-border);border-radius:var(--radius-xs);font-size:14px;font-family:'Inter',sans-serif;background:var(--glass);color:var(--white);transition:all 0.3s;outline:none}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:rgba(212,168,83,0.4);background:rgba(255,255,255,0.06);box-shadow:0 0 20px rgba(212,168,83,0.06)}
+.fg textarea{min-height:120px;resize:vertical}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.success-box{background:rgba(212,168,83,0.08);border:1px solid rgba(212,168,83,0.2);border-radius:var(--radius-xs);padding:14px 18px;color:var(--gold);font-size:13px;font-weight:500;display:none;margin-bottom:16px}
+@media(max-width:768px){.contact-grid{grid-template-columns:1fr}.fg-row{grid-template-columns:1fr}}
+
+/* FLOATING WA */
+.floating-wa{position:fixed;bottom:32px;right:32px;z-index:999;width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 0 30px rgba(37,211,102,0.2);text-decoration:none;transition:all 0.3s;cursor:none}
+.floating-wa:hover{transform:scale(1.08);box-shadow:0 0 50px rgba(37,211,102,0.3)}
+.floating-wa .tooltip{position:absolute;right:72px;background:var(--white);color:var(--black);padding:8px 16px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,0.3);opacity:0;pointer-events:none;transition:0.2s}
+.floating-wa:hover .tooltip{opacity:1}
+
+/* FOOTER */
+footer{border-top:1px solid var(--glass-border);padding:48px 0 28px}
+.footer-top{text-align:center;margin-bottom:40px}
+.footer-top h3{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--white);margin-bottom:12px}
+.footer-top p{font-size:14px;color:var(--gray-400);margin-bottom:24px;font-weight:300}
+.footer-socials{display:flex;gap:16px;justify-content:center;margin-bottom:40px}
+.footer-socials a{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--glass);border:1px solid var(--glass-border);color:var(--gray-400);text-decoration:none;font-size:16px;transition:all 0.3s}
+.footer-socials a:hover{background:var(--gold-dim);border-color:rgba(212,168,83,0.3);color:var(--gold)}
+.footer-bottom{border-top:1px solid var(--glass-border);padding-top:24px;text-align:center;font-size:12px;color:var(--gray-600);display:flex;justify-content:center;gap:24px;flex-wrap:wrap}
+.footer-bottom a{color:var(--gray-400);text-decoration:none;transition:0.2s}
+.footer-bottom a:hover{color:var(--gold)}
+
+/* ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(36px);transition:all 0.7s cubic-bezier(0.16,1,0.3,1)}
+.fade-up.show{opacity:1;transform:translateY(0)}
+.loader{position:fixed;inset:0;background:var(--black);z-index:9999;display:flex;align-items:center;justify-content:center;transition:opacity 0.5s,visibility 0.5s}
+.loader.hide{opacity:0;visibility:hidden}
+.loader-ring{width:44px;height:44px;border:2px solid rgba(212,168,83,0.15);border-top-color:var(--gold);border-radius:50%;animation:spin 0.8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<div class="loader" id="loader"><div class="loader-ring"></div></div>
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<nav class="navbar" id="navbar"><div class="nav-inner">
+<a href="#" class="nav-logo" style="display:flex;align-items:center;gap:14px"><img src="data:image/jpeg;base64,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" alt="Somers Studio" style="height:44px;width:auto;border-radius:var(--radius-xs)"><span class="logo-text">Somers Studio</span></a>
+<button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+<ul class="nav-links" id="navLinks">
+<li><a href="#home">Home</a></li>
+<li><a href="#portfolio">Portfolio</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+<li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+</ul></div></nav>
+
+<section class="hero" id="home">
+<div class="hero-bg"></div>
+<div class="container hero-grid">
+<div class="hero-badge"><span class="dot"></span>Premium Web Design — Malaysia</div>
+<h1>Helping Businesses Build a<br><span>Strong Online Presence</span></h1>
+<p>Professional websites, redesigns, logos and marketing materials that help businesses earn trust and attract more customers.</p>
+<div class="btn-group">
+<a href="#portfolio" class="btn btn-primary">View My Work</a>
+<a href="#contact" class="btn btn-glass">Get a Free Quote</a>
+</div>
+<div class="hero-stats">
+<div><div class="hero-stat-num">5+</div><div class="hero-stat-lbl">Industries Served</div></div>
+<div><div class="hero-stat-num">100%</div><div class="hero-stat-lbl">Client Focused</div></div>
+<div><div class="hero-stat-num">RM150</div><div class="hero-stat-lbl">Starting From</div></div>
+</div>
+</div>
+</section>
+<section id="portfolio"><div class="container">
+<div class="section-tag">Portfolio</div>
+<h2 class="section-h2">Recent Work</h2>
+<p class="section-sub" style="margin-bottom:48px">Websites designed for businesses that want to look professional and win more customers.</p>
+<div class="portfolio-grid">
+<div class="glass-card portfolio-item fade-up"><img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=600&amp;h=450&amp;fit=crop" alt="Plumbing website" loading="lazy" onerror="this.style.opacity=0"><div class="portfolio-info"><p>Service Business</p><h3>Plumbing Company</h3></div></div>
+<div class="glass-card portfolio-item fade-up"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&amp;h=450&amp;fit=crop" alt="Restaurant website" loading="lazy" onerror="this.style.opacity=0"><div class="portfolio-info"><p>F&amp;B Industry</p><h3>Restaurant</h3></div></div>
+<div class="glass-card portfolio-item fade-up"><img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&amp;h=450&amp;fit=crop" alt="Café website" loading="lazy" onerror="this.style.opacity=0"><div class="portfolio-info"><p>F&amp;B Industry</p><h3>Café</h3></div></div>
+<div class="glass-card portfolio-item fade-up"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&amp;h=450&amp;fit=crop" alt="Gym website" loading="lazy" onerror="this.style.opacity=0"><div class="portfolio-info"><p>Fitness</p><h3>Gym</h3></div></div>
+<div class="glass-card portfolio-item fade-up"><img src="https://images.unsplash.com/photo-1503951914875-452f4e9f7ac6?w=600&amp;h=450&amp;fit=crop" alt="Barber shop website" loading="lazy" onerror="this.style.opacity=0"><div class="portfolio-info"><p>Grooming</p><h3>Barber Shop</h3></div></div>
+<div class="glass-card portfolio-item fade-up" style="display:flex;align-items:center;justify-content:center;text-align:center;background:var(--gold-dim);border-color:rgba(212,168,83,0.15)"><div><div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--gold);margin-bottom:8px">Your Business Here</div><div style="font-size:12px;color:var(--gray-400)">Let's create something beautiful</div></div></div>
+</div>
+</div></section>
+
+<section id="services"><div class="container">
+<div class="section-tag">What I Offer</div>
+<h2 class="section-h2">Premium Design Services</h2>
+<p class="section-sub" style="margin-bottom:48px">Every project is crafted with care — no templates, no shortcuts, just quality work that represents your brand.</p>
+<div class="services-grid">
+<div class="glass-card service-card fade-up"><span class="sicon">🌐</span><h3>Website Design</h3><p>Custom, responsive websites that look modern and convert visitors into customers.</p><span class="sprice">From RM150</span></div>
+<div class="glass-card service-card fade-up"><span class="sicon">🔄</span><h3>Website Redesign</h3><p>Give your existing website a fresh, modern look that performs better.</p><span class="sprice">From RM120</span></div>
+<div class="glass-card service-card fade-up"><span class="sicon">✒️</span><h3>Logo Design</h3><p>Clean, memorable logos that make your brand stand out instantly.</p><span class="sprice">From RM80</span></div>
+<div class="glass-card service-card fade-up"><span class="sicon">🎨</span><h3>Poster Design</h3><p>Eye-catching posters and marketing materials for your business.</p><span class="sprice">From RM50</span></div>
+</div>
+</div></section>
+
+<section id="why"><div class="container">
+<div class="section-tag">Why Somers Studio</div>
+<h2 class="section-h2">Design That Works</h2>
+<p class="section-sub" style="margin-bottom:48px">I bring a blend of modern aesthetics and real-world usability to every project.</p>
+<div class="why-grid" style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px">
+<div class="glass-card why-card fade-up" style="padding:32px 20px;text-align:center"><div style="font-size:28px;margin-bottom:14px">✨</div><h3 style="font-family:'Playfair Display',serif;font-size:15px;font-weight:600;color:var(--white);margin-bottom:6px">Modern Luxury Designs</h3><p style="font-size:12px;color:var(--gray-400);line-height:1.5">Clean, elegant websites that look premium</p></div>
+<div class="glass-card why-card fade-up" style="padding:32px 20px;text-align:center"><div style="font-size:28px;margin-bottom:14px">📱</div><h3 style="font-family:'Playfair Display',serif;font-size:15px;font-weight:600;color:var(--white);margin-bottom:6px">Mobile-First</h3><p style="font-size:12px;color:var(--gray-400);line-height:1.5">Perfect on phones, tablets and desktops</p></div>
+<div class="glass-card why-card fade-up" style="padding:32px 20px;text-align:center"><div style="font-size:28px;margin-bottom:14px">⚡</div><h3 style="font-family:'Playfair Display',serif;font-size:15px;font-weight:600;color:var(--white);margin-bottom:6px">Fast Loading</h3><p style="font-size:12px;color:var(--gray-400);line-height:1.5">Optimised for speed and performance</p></div>
+<div class="glass-card why-card fade-up" style="padding:32px 20px;text-align:center"><div style="font-size:28px;margin-bottom:14px">💰</div><h3 style="font-family:'Playfair Display',serif;font-size:15px;font-weight:600;color:var(--white);margin-bottom:6px">Affordable Pricing</h3><p style="font-size:12px;color:var(--gray-400);line-height:1.5">Premium quality at honest prices</p></div>
+<div class="glass-card why-card fade-up" style="padding:32px 20px;text-align:center"><div style="font-size:28px;margin-bottom:14px">🤝</div><h3 style="font-family:'Playfair Display',serif;font-size:15px;font-weight:600;color:var(--white);margin-bottom:6px">Personal Attention</h3><p style="font-size:12px;color:var(--gray-400);line-height:1.5">You work directly with me, every step</p></div>
+</div>
+</div></section>
+
+<section id="pricing"><div class="container">
+<div class="glass-card pricing-card fade-up">
+<div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--gold);margin-bottom:12px">Pricing</div>
+<div class="price-from">Starting from</div>
+<div class="price-num">RM150</div>
+<div class="pricing-features"><div class="pricing-feat">Custom design — no templates</div><div class="pricing-feat">Mobile responsive</div><div class="pricing-feat">Fast loading &amp; optimised</div><div class="pricing-feat">Direct 1-on-1 communication</div></div>
+<p class="price-note">Every business is different. Contact me for a personalised quote tailored to your needs and budget.</p>
+<a href="#contact" class="btn btn-primary" style="margin-top:24px">Get Your Quote →</a>
+</div>
+</div></section>
+
+<section id="testimonials"><div class="container">
+<div class="section-tag">Testimonials</div>
+<h2 class="section-h2">What Clients Say</h2>
+<p class="section-sub" style="margin-bottom:48px">Feedback from business owners I've helped build their online presence.</p>
+<div class="testimonials-grid">
+<div class="glass-card testimonial-card fade-up"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Somers Studio gave my plumbing business a website that finally looks professional. Customers now find us on Google and trust us before they even call. Best investment for my business."</p><div class="testimonial-author"><div class="testimonial-avatar">L</div><div><div class="testimonial-name">Lee Chin</div><div class="testimonial-role">Plumbing Business Owner</div></div></div></div>
+<div class="glass-card testimonial-card fade-up"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"The redesign of my café website was exactly what I needed — modern, fast, and the online orders increased within the first week. Truly understands what a business owner wants."</p><div class="testimonial-author"><div class="testimonial-avatar">A</div><div><div class="testimonial-name">Aisyah</div><div class="testimonial-role">Café Owner</div></div></div></div>
+<div class="glass-card testimonial-card fade-up"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"My barber shop finally has an online booking system and a website that matches our brand. Professional, affordable, and the communication was excellent throughout."</p><div class="testimonial-author"><div class="testimonial-avatar">R</div><div><div class="testimonial-name">Rizal</div><div class="testimonial-role">Barber Shop Owner</div></div></div></div>
+</div>
+</div></section>
+
+<section id="about"><div class="container"><div class="about-grid">
+<div class="about-image fade-up">
+<div class="accent-dot"></div>
+<img src="data:image/jpeg;base64,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" alt="Somers Studio" style="max-width:180px;height:auto;border-radius:var(--radius)">
+</div>
+<div>
+<div class="section-tag">About Somers Studio</div>
+<h2 class="section-h2">Web Design With Purpose</h2>
+<p style="color:var(--gray-400);font-size:15px;line-height:1.8;margin-bottom:16px;font-weight:300">Somers Studio, founded by <strong style="color:var(--gold);font-weight:700">Danish Somers</strong>, is a modern web design brand focused on helping Malaysian businesses stand out online through clean design and excellent user experience.</p>
+<p style="color:var(--gray-400);font-size:15px;line-height:1.8;font-weight:300">I believe every business — from small shops to growing brands — deserves a website that looks premium and works beautifully. No generic templates, no cut corners. Just honest, quality design that helps you attract more customers and build trust.</p>
+<div class="about-features">
+<div class="about-feat"><span class="check">✓</span>Custom designs — no templates</div>
+<div class="about-feat"><span class="check">✓</span>Mobile-first responsive websites</div>
+<div class="about-feat"><span class="check">✓</span>Fast turnaround &amp; clear communication</div>
+<div class="about-feat"><span class="check">✓</span>Serving businesses across Malaysia</div><div class="about-feat"><span class="check">✓</span>Founded by Danish Somers</div>
+</div>
+</div>
+</div></div></section>
+
+<section id="contact"><div class="container">
+<div class="section-tag">Let's Work Together</div>
+<h2 class="section-h2">Start Your Project</h2>
+<p class="section-sub" style="margin-bottom:48px">Ready for a website that makes your business look professional? Let's talk.</p>
+<div class="contact-grid">
+<div>
+<div class="contact-cards">
+<div class="glass-card contact-card"><div class="cc-icon">💬</div><div><h3>WhatsApp</h3><a href="https://wa.me/60194058129?text=Hi%20Somers%20Studio,%20I%20would%20like%20a%20quote" target="_blank" rel="noopener">+60 19-405 8129</a></div></div>
+<div class="glass-card contact-card"><div class="cc-icon">📸</div><div><h3>Instagram</h3><a href="https://instagram.com/TeenagerPosterBoy" target="_blank" rel="noopener">@TeenagerPosterBoy</a></div></div>
+<div class="glass-card contact-card"><div class="cc-icon">✉️</div><div><h3>Email</h3><a href="/cdn-cgi/l/email-protection#593d3837302a312a36343c2b2a193e34383035773a3634"><span class="__cf_email__" data-cfemail="5e3a3f30372d362d31333b2c2d1e39333f3732703d3133">[email&#160;protected]</span></a></div></div>
+<div class="glass-card contact-card"><div class="cc-icon">⏰</div><div><h3>Response Time</h3><p>Usually within a few hours</p></div></div>
+</div>
+</div>
+<div class="glass-card form-card">
+<h3>Send Me a Message</h3>
+<div class="success-box" id="successBox">✓ Thanks! I'll get back to you soon.</div>
+<form id="contactForm">
+<div class="fg-row"><div class="fg"><label>Your Name</label><input type="text" id="name" placeholder="Your name" required></div><div class="fg"><label>Phone / WhatsApp</label><input type="tel" id="phone" placeholder="012-345 6789" required></div></div>
+<div class="fg"><label>Email (Optional)</label><input type="email" id="email" placeholder="you@email.com"></div>
+<div class="fg"><label>What Do You Need?</label><select id="service"><option value="">Select a service…</option><option value="Website Design">Website Design</option><option value="Website Redesign">Website Redesign</option><option value="Logo Design">Logo Design</option><option value="Poster Design">Poster Design</option><option value="Other">Something Else</option></select></div>
+<div class="fg"><label>Tell Me About Your Project</label><textarea id="message" placeholder="Describe your business and what you're looking for…" required></textarea></div>
+<button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:18px;font-size:16px">💬 Send via WhatsApp</button>
+</form>
+</div>
+</div>
+</div></section>
+
+<footer><div class="container">
+<div class="footer-top"><h3>Ready to elevate your brand?</h3><p>Let's create something people remember.</p><a href="https://wa.me/60194058129?text=Hi%20Somers%20Studio,%20I%20would%20like%20to%20start%20a%20project" target="_blank" rel="noopener" class="btn btn-primary">Start Your Project →</a></div>
+<div class="footer-socials"><a href="https://instagram.com/TeenagerPosterBoy" target="_blank" rel="noopener" aria-label="Instagram">📸</a><a href="https://wa.me/60194058129" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a><a href="/cdn-cgi/l/email-protection#4f2b2e21263c273c20222a3d3c0f28222e2623612c2022" aria-label="Email">✉️</a></div>
+<div class="footer-bottom"><span>&copy; 2026 Somers Studio — Founded by Danish Somers</span><span>Premium Web Design — Malaysia</span></div>
+</div></footer>
+
+<a href="https://wa.me/60194058129?text=Hi%20Somers%20Studio,%20I%20would%20like%20a%20quote" target="_blank" rel="noopener" class="floating-wa" aria-label="Chat on WhatsApp"><span class="tooltip">Let's chat!</span>💬</a>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+window.addEventListener('load',function(){document.getElementById('loader').classList.add('hide')})
+document.getElementById('navToggle').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('open')})
+document.querySelectorAll('.nav-links a').forEach(function(l){l.addEventListener('click',function(){document.getElementById('navLinks').classList.remove('open')})})
+window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20)})
+
+var glow=document.getElementById('cursorGlow');
+document.addEventListener('mousemove',function(e){glow.style.transform='translate('+(e.clientX-200)+'px,'+(e.clientY-200)+'px)'})
+
+document.querySelectorAll('.glass-card').forEach(function(card){card.addEventListener('mousemove',function(e){var r=card.getBoundingClientRect();var x=e.clientX-r.left;var y=e.clientY-r.top;card.style.setProperty('--mx',x+'px');card.style.setProperty('--my',y+'px')})})
+
+document.getElementById('contactForm').addEventListener('submit',function(e){e.preventDefault();var n=document.getElementById('name').value,ph=document.getElementById('phone').value,msg=document.getElementById('message').value,s=document.getElementById('service').value;var t='Hi Somers Studio,%20I%20would%20like%20a%20quote.%0A%0AName:%20'+encodeURIComponent(n)+'%0APhone:%20'+encodeURIComponent(ph)+'%0AService:%20'+encodeURIComponent(s||'Not%20specified')+'%0A%0A'+encodeURIComponent(msg);window.open('https://wa.me/60194058129?text='+t,'_blank');document.getElementById('successBox').style.display='block';setTimeout(function(){document.getElementById('successBox').style.display='none'},6000);this.reset()})
+
+var observer=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('show');observer.unobserve(e.target)}})},{threshold:0.1})
+document.querySelectorAll('.fade-up').forEach(function(el){observer.observe(el)})
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"3279d41ec7804124a29acc6e692f9a2b","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
